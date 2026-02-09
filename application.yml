@@ -10,16 +10,15 @@ management:
     web:
       exposure:
         include: "*"
+      cors:
+        allowed-origins: []
+        allowed-methods: []
   endpoint:
     health:
       show-details: always
   # tracing:
   #   sampling:
   #     probability: 1.0
-resilience4j.:
-circuitbreaker:
-  instances:
-    
 resilience4j:
   circuitbreaker:
     instances:
@@ -97,7 +96,7 @@ eureka:
     lease-renewal-interval-in-seconds: 10        # how often this instance renews its lease
     lease-expiration-duration-in-seconds: 30     # how long Eureka waits before evicting this instance
     prefer-ip-address: true
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}  # unique ID
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 
 logging:
